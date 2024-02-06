@@ -13,7 +13,6 @@ public class Main {
     public static void main(String[] args) {
         new Main().add(1, 2);
         DateUtils.isNowBetween(LocalDate.MIN, LocalDate.MAX);
-        DateUtils.isDateBetween(LocalDate.of(2024, 2, 6), LocalDate.MIN, LocalDate.MAX);
         System.out.printf("Hello World");
     }
 }
