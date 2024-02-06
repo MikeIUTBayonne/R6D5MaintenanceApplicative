@@ -9,17 +9,11 @@ public class Main {
     public int add(int firstNumber, int b) {
         return firstNumber + b;
     }
-    public static boolean isNowBetween(LocalDate startingDate, LocalDate endingDate) {
-        LocalDate now = LocalDate.now();
-        return isDateBetween(now, startingDate, endingDate);
-    }
-
-    private static boolean isDateBetween(LocalDate date, LocalDate startingDate, LocalDate endingDate) {
-        return date.isAfter(startingDate) && date.isBefore(endingDate);
-    }
 
     public static void main(String[] args) {
         new Main().add(1, 2);
+        DateUtils.isNowBetween(LocalDate.MIN, LocalDate.MAX);
+        DateUtils.isDateBetween(LocalDate.of(2024, 2, 6), LocalDate.MIN, LocalDate.MAX);
         System.out.printf("Hello World");
     }
 }
