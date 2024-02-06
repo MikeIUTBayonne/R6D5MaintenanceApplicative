@@ -12,6 +12,6 @@ public class DateUtils {
 
     public static boolean isDateOutside(LocalDate date, LocalDate startingDate,
                                         LocalDate endingDate) {
-        return !isDateBetween(date, startingDate, endingDate, );
+        return !isDateBetween(date, startingDate, endingDate, true);
     }
 }
