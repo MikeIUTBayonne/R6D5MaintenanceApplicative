@@ -23,7 +23,7 @@ public class Customer {
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        String result = "Rental Record for " + getName() + "\n";
+        String result = addHeaderLine();
 
         for (Rental each : _rentals) {
             double thisAmount = determineAmountForEachLine(each);
@@ -38,6 +38,10 @@ public class Customer {
         result += addFooterLines(totalAmount, frequentRenterPoints);
 
         return result;
+    }
+
+    private String addHeaderLine() {
+        return "Rental Record for " + getName() + "\n";
     }
 
     private static String addFooterLines(double totalAmount, int frequentRenterPoints) {
