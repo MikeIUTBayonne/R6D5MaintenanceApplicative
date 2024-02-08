@@ -32,7 +32,7 @@ public class Customer {
             frequentRenterPoints += rentalFrequentRenterPoints;
 
             // show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+            result += showFiguresForThisRental(each, thisAmount);
             totalAmount += thisAmount;
         }
 
@@ -41,6 +41,10 @@ public class Customer {
         result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 
         return result;
+    }
+
+    private static String showFiguresForThisRental(Rental each, double thisAmount) {
+        return "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
     }
 
     private static int addFrequentRenterPoints(Rental each) {
