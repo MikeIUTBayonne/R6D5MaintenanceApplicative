@@ -30,17 +30,18 @@ public class Customer {
 
             int rentalFrequentRenterPoints = addFrequentRenterPoints(each);
             frequentRenterPoints += rentalFrequentRenterPoints;
-
-            // show figures for this rental
+            
             result += showFiguresForThisRental(each, thisAmount);
             totalAmount += thisAmount;
         }
 
-        // add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+        result += addFooterLines(totalAmount, frequentRenterPoints);
 
         return result;
+    }
+
+    private static String addFooterLines(double totalAmount, int frequentRenterPoints) {
+        return "Amount owed is " + String.valueOf(totalAmount) + "\n" + "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
     }
 
     private static String showFiguresForThisRental(Rental each, double thisAmount) {
