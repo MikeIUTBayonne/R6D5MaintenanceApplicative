@@ -27,7 +27,6 @@ public class Customer {
 
         for (Rental rental : rentals) {
             double thisAmount = determineAmountForEachLine(rental);
-
             int rentalFrequentRenterPoints = addFrequentRenterPoints(rental);
             frequentRenterPoints += rentalFrequentRenterPoints;
             
