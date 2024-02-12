@@ -53,11 +53,7 @@ public class Customer {
     }
 
     private static int addFrequentRenterPoints(Rental rental) {
-        // add frequent renter points
-        int rentalFrequentRenterPoints = 1;
-        // add bonus for a two-day new release rental
-        rentalFrequentRenterPoints += addBonusForATwoDaysNewReleaseRental(rental);
-        return rentalFrequentRenterPoints;
+        return 1 + addBonusForATwoDaysNewReleaseRental(rental);
     }
 
     private static int addBonusForATwoDaysNewReleaseRental(Rental rental) {
