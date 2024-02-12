@@ -48,17 +48,22 @@ public class Customer {
         return "Amount owed is " + totalAmount + "\n" + "You earned " + frequentRenterPoints + " frequent renter points";
     }
 
-    private static String showFiguresForThisRental(Rental each, double thisAmount) {
-        return "\t" + each.getMovie().getTitle() + "\t" + thisAmount + "\n";
+    private static String showFiguresForThisRental(Rental rental, double thisAmount) {
+        return "\t" + rental.getMovie().getTitle() + "\t" + thisAmount + "\n";
     }
 
     private static int addFrequentRenterPoints(Rental rental) {
         // add frequent renter points
         int rentalFrequentRenterPoints = 1;
         // add bonus for a two-day new release rental
-        if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
-            rentalFrequentRenterPoints += 1;
+        rentalFrequentRenterPoints += addBonusForATwoDaysNewReleaseRental(rental);
         return rentalFrequentRenterPoints;
+    }
+
+    private static int addBonusForATwoDaysNewReleaseRental(Rental rental) {
+        if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
+            return 1;
+        return 0;
     }
 
     private static double determineAmountForEachLine(Rental rental) {
